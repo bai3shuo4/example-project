@@ -1,65 +1,65 @@
-# Kubernetes 示例项目
+# Kubernetes Example Project
 
-这是一个使用 Kubernetes 部署 Nginx 应用的示例项目。该项目包含了完整的 Kubernetes 资源配置，用于演示如何部署和管理一个简单的 Web 应用。
+This is a sample project that demonstrates how to deploy an Nginx application using Kubernetes. The project includes complete Kubernetes resource configurations for deploying and managing a simple web application.
 
-## 项目结构
+## Project Structure
 
-- `deployment.yaml`: 定义应用的部署配置
-- `service.yaml`: 定义 Kubernetes Service
-- `ingress.yaml`: 配置 Ingress 规则
-- `config.yaml`: 应用配置
-- `secret.yaml`: 敏感信息配置
+- `deployment.yaml`: Defines the application deployment configuration
+- `service.yaml`: Defines the Kubernetes Service
+- `ingress.yaml`: Configures Ingress rules
+- `config.yaml`: Application configuration
+- `secret.yaml`: Sensitive information configuration
 
-## 部署说明
+## Deployment Instructions
 
-### 前置条件
+### Prerequisites
 
-- Kubernetes 集群
-- kubectl 命令行工具
-- 集群中已安装 Ingress Controller
+- Kubernetes cluster
+- kubectl command-line tool
+- Ingress Controller installed in the cluster
 
-### 部署步骤
+### Deployment Steps
 
-1. 创建配置和密钥：
+1. Create configuration and secrets:
 ```bash
 kubectl apply -f config.yaml
 kubectl apply -f secret.yaml
 ```
 
-2. 部署应用：
+2. Deploy the application:
 ```bash
 kubectl apply -f deployment.yaml
 ```
 
-3. 创建服务：
+3. Create the service:
 ```bash
 kubectl apply -f service.yaml
 ```
 
-4. 配置 Ingress：
+4. Configure Ingress:
 ```bash
 kubectl apply -f ingress.yaml
 ```
 
-## 配置说明
+## Configuration Details
 
-- 应用使用 Nginx 最新版本
-- 默认部署 2 个副本
-- 服务类型为 ClusterIP
-- Ingress 配置为 example.local 域名
-- 应用配置通过 ConfigMap 和 Secret 注入
+- Application uses the latest version of Nginx
+- Default deployment with 2 replicas
+- Service type is ClusterIP
+- Ingress configured for example.local domain
+- Application configuration injected via ConfigMap and Secret
 
-## 访问应用
+## Accessing the Application
 
-配置本地 hosts 文件，添加以下记录：
+Configure your local hosts file by adding the following entry:
 ```
-ClusterIP example.local
+clusterIP example.local
 ```
 
-然后可以通过浏览器访问：http://example.local
+Then access the application through your browser at: http://example.local
 
-## 注意事项
+## Important Notes
 
-- 确保 Kubernetes 集群正常运行
-- 检查 Ingress Controller 是否正确配置
-- 根据实际需求修改配置参数 
+- Ensure the Kubernetes cluster is running properly
+- Verify that the Ingress Controller is correctly configured
+- Modify configuration parameters according to your needs 
